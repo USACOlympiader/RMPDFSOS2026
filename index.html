@@ -1,7 +1,85 @@
-<embed 
-  src="MIT_2026_RocksMinerals_Answer_Key.pdf" 
-  type="application/pdf" 
-  width="100%" 
-  height="600px" 
-  title="MIT R&M Answer Key (made w/ Claude)"
-/>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Viewer</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1e1e1e;
+    }
+
+    .topbar {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      background: #292929;
+      color: white;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .open-button {
+      padding: 9px 16px;
+      border: none;
+      border-radius: 6px;
+      background: #4f8cff;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .open-button:hover {
+      background: #3678e8;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="title">
+      MIT 2026 Rocks & Minerals — Answer Key
+    </div>
+
+    <button class="open-button" onclick="openPDF()">
+      Open PDF
+    </button>
+  </div>
+
+  <iframe id="pdfViewer"></iframe>
+
+  <script>
+    const pdfFile = "MIT_2026_RocksMinerals_Answer_Key.pdf";
+
+    function openPDF() {
+      document.getElementById("pdfViewer").src = pdfFile;
+    }
+
+    // Load the PDF automatically
+    openPDF();
+  </script>
+
+</body>
+</html>
+```
