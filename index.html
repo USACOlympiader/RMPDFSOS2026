@@ -65,14 +65,28 @@
       Open PDF
     </button>
   </div>
+  <div class="topbar">
+    <div class="title">
+      Boomilever AI Generated Build Guide
+    </div>
+
+    <button class="open-button" onclick="openPDF2()">
+      Open PDF
+    </button>
+  </div>
+  
 
   <iframe id="pdfViewer"></iframe>
 
   <script>
     const pdfFile = "MIT_2026_RocksMinerals_Answer_Key.pdf";
+    const pdfFile2 = "boomilever-build-guide.pdf";
 
     function openPDF() {
       document.getElementById("pdfViewer").src = pdfFile;
+    }
+    function openPDF2() {
+      document.getElementById("pdfViewer").src = pdfFile2;
     }
 
     // Load the PDF automatically
@@ -81,4 +95,4 @@
 
 </body>
 </html>
-```
+
