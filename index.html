@@ -55,47 +55,64 @@
 </head>
 
 <body>
-  <div class="topbar" id="opener">
-    <div class="title" id="title">
-      Boomilever AI Generated Build Guide
-    </div>
-    <div id="button">
-      <button class="open-button" onclick="openPDF2()">
-        Open PDF
+
+  <div class="topbar">
+    <div class="title" id="title"></div>
+
+    <div>
+      <button
+        id="switchButton"
+        class="open-button"
+        onclick="switchPDF()"
+      >
       </button>
     </div>
   </div>
-  
 
   <iframe id="pdfViewer"></iframe>
 
   <script>
-    int rocksPDF = 1;
-    const pdfFile = "MIT_2026_RocksMinerals_Answer_Key.pdf";
-    const pdfFile2 = "boomilever-build-guide.pdf";
+    const rocksPDF = "MIT_2026_RocksMinerals_Answer_Key.pdf";
+    const boomileverPDF = "boomilever-build-guide.pdf";
 
-    function openPDF() {
-      document.getElementById("pdfViewer").src = pdfFile;
-      int rocksPDF = 1;
-    }
-    function openPDF2() {
-      document.getElementById("pdfViewer").src = pdfFile2;
-      int rocksPDF = 0;
-    }
+    // "rocks" or "boomilever"
+    let currentPDF = "rocks";
 
-    if (rocksPDF == 0){
-      document.getElementById("title").innerHTML = "Rocks and Minerals AI Generated Answer Key";
-      document.getElementById("button").innerHTML = "<button class="open-button" onclick="openPDF()">Open PDF</button>";
-    }
-    else {
-      document.getElementById("title").innerHTML = "Boomilever AI Generated Build Guide";
-      document.getElementById("button").innerHTML = "<button class="open-button" onclick="openPDF2()">Open PDF</button>";
+    function showRocksPDF() {
+      currentPDF = "rocks";
+
+      document.getElementById("pdfViewer").src = rocksPDF;
+
+      document.getElementById("title").textContent =
+        "Rocks and Minerals AI Generated Answer Key";
+
+      document.getElementById("switchButton").textContent =
+        "Open Boomilever Guide";
     }
 
-    // Load the PDF automatically
-    openPDF();
+    function showBoomileverPDF() {
+      currentPDF = "boomilever";
+
+      document.getElementById("pdfViewer").src = boomileverPDF;
+
+      document.getElementById("title").textContent =
+        "Boomilever AI Generated Build Guide";
+
+      document.getElementById("switchButton").textContent =
+        "Open Rocks & Minerals Answer Key";
+    }
+
+    function switchPDF() {
+      if (currentPDF === "rocks") {
+        showBoomileverPDF();
+      } else {
+        showRocksPDF();
+      }
+    }
+
+    // Automatically load the Rocks & Minerals PDF
+    showRocksPDF();
   </script>
 
 </body>
 </html>
-
